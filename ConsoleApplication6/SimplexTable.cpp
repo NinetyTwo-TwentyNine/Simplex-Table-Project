@@ -8,6 +8,7 @@ using namespace std;
 
 string basicSpace = "	";
 
+
 class SimplexTable
 {
 private:
@@ -20,7 +21,7 @@ private:
 public:
 	SimplexTable(vector <int>& goalEquas, vector <vector <int>>& borderArray, vector <int>& resultArray, vector <int>& basicVars, bool& func_type)
 	{
-		cout << "Got to creating the first table!" << endl;
+		//cout << "Got to creating the first table!" << endl;
 
 		type = func_type;
 		basis = basicVars;

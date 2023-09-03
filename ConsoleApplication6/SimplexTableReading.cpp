@@ -1,64 +1,16 @@
 ﻿#include <iostream>
-#include <iomanip>
 #include <vector>
-#include <cmath>
-#include <string>
 
 #include "SimplexTable.cpp"
+#include "PrinterFunctions.cpp"
 
 using namespace std;
 
-void printGoalEquasion(vector <int>& equas, bool type)
-{
-	if (type)
-	{
-		cout << "maxF = ";
-	}
-	else
-	{
-		cout << "minF = ";
-	}
-	for (int i = 0; i < equas.size(); i++)
-	{
-		if (equas[i] >= 0 && i > 0)
-		{
-			cout << "+";
-		}
-		cout << equas[i] << "X" << i + 1;
-	}
-	cout << endl;
-}
-
-void printBorderEquasion(vector <int>& equas, int result, bool type)
-{
-	for (int i = 0; i < equas.size(); i++)
-	{
-		if (equas[i] >= 0 && i > 0)
-		{
-			cout << "+";
-		}
-		cout << equas[i] << "X" << i + 1;
-	}
-	if (type)
-	{
-		cout << "<=";
-	}
-	else
-	{
-		cout << "=>";
-	}
-	cout << result << endl;
-}
 
 vector<int> getBasicVariables(vector <vector <int>>& borders)
 {
-	vector <bool> checkArray(borders[0].size());
-	vector <int> checkArray_appearNum(borders[0].size());
-	for (int i = 0; i < checkArray.size(); i++)
-	{
-		checkArray[i] = true;
-		checkArray_appearNum[i] = 0;
-	}
+	vector <bool> checkArray(borders[0].size(), true);
+	vector <int> checkArray_appearNum(borders[0].size(), 0);
 
 	for (int i = 0; i < borders.size(); i++)
 	{
@@ -87,7 +39,7 @@ vector<int> getBasicVariables(vector <vector <int>>& borders)
 			basics.push_back(i);
 		}
 	}
-	
+
 	return basics;
 }
 
